@@ -48,11 +48,13 @@ def calculate_descent_gradient(ias_knots, weight_kg, cd, wing_area_m2, idle_thru
         descent_angle_rad = math.asin(descent_gradient)
         descent_angle_deg = math.degrees(descent_angle_rad)
     
-    # 步骤8: 计算下降梯度比
+    # 步骤8: 计算高距比 (FEET/NM)
     if descent_gradient > 0:
-        descent_ratio = 1.0 / descent_gradient
+        # 下降梯度 = 垂直距离/水平距离
+        # 1海里 = 6076英尺，所以高距比 = (下降梯度 × 6076) feet/nm
+        height_distance_ratio = descent_gradient * 6076
     else:
-        descent_ratio = float('inf')
+        height_distance_ratio = 0.0
     
     # 返回完整结果
     results = {
@@ -74,7 +76,7 @@ def calculate_descent_gradient(ias_knots, weight_kg, cd, wing_area_m2, idle_thru
         'descent_gradient': descent_gradient,
         'descent_angle_rad': descent_angle_rad,
         'descent_angle_deg': descent_angle_deg,
-        'descent_ratio': descent_ratio,
+        'height_distance_ratio_ft_nm': height_distance_ratio,
         
         # 状态检查
         'is_valid_descent': net_drag > 0
@@ -104,7 +106,7 @@ def print_results(results):
     if results['is_valid_descent']:
         print(f"  下降梯度:          {results['descent_gradient']:.4f}")
         print(f"  下降角:            {results['descent_angle_deg']:.2f}° ({results['descent_angle_rad']:.4f} rad)")
-        print(f"  下降梯度比:        1:{results['descent_ratio']:.1f}")
+        print(f"  高距比:            {results['height_distance_ratio_ft_nm']:.0f} feet/nm")
     else:
         print("  警告: IDLE推力大于或等于阻力，无法维持稳定下降！")
     
@@ -113,9 +115,9 @@ def print_results(results):
 def calculate_multiple_cases(cases):
     """批量计算多个案例"""
     print("批量计算结果:")
-    print("=" * 100)
-    print(f"{'IAS(节)':<8} {'重量(kg)':<10} {'CD':<6} {'面积(m²)':<10} {'IDLE(N)':<10} {'下降梯度':<12} {'下降角(°)':<12} {'下降比':<12}")
-    print("-" * 100)
+    print("=" * 115)
+    print(f"{'IAS(节)':<8} {'重量(kg)':<10} {'CD':<6} {'面积(m²)':<10} {'IDLE(N)':<10} {'下降梯度':<12} {'下降角(°)':<12} {'高距比(ft/nm)':<15}")
+    print("-" * 115)
     
     for case in cases:
         result = calculate_descent_gradient(
@@ -126,10 +128,10 @@ def calculate_multiple_cases(cases):
         if result['is_valid_descent']:
             print(f"{case['ias']:<8} {case['weight']:<10,} {case['cd']:<6} {case['wing_area']:<10} "
                   f"{case['idle_thrust']:<10,} {result['descent_gradient']:<12.4f} "
-                  f"{result['descent_angle_deg']:<12.2f} 1:{result['descent_ratio']:<11.1f}")
+                  f"{result['descent_angle_deg']:<12.2f} {result['height_distance_ratio_ft_nm']:<15.0f}")
         else:
             print(f"{case['ias']:<8} {case['weight']:<10,} {case['cd']:<6} {case['wing_area']:<10} "
-                  f"{case['idle_thrust']:<10,} {'无法下降':<12} {'N/A':<12} {'N/A':<12}")
+                  f"{case['idle_thrust']:<10,} {'无法下降':<12} {'N/A':<12} {'N/A':<15}")
 
 # 使用示例
 if __name__ == "__main__":
@@ -162,4 +164,4 @@ if __name__ == "__main__":
     print("# 计算单个案例")
     print("result = calculate_descent_gradient(300, 64500, 0.023, 122.6, 8000)")
     print("print(f'下降梯度: {result[\"descent_gradient\"]:.4f}')")
-    print("print(f'下降角: {result[\"descent_angle_deg\"]:.2f}°')")
+    print("print(f'高距比: {result[\"height_distance_ratio_ft_nm\"]:.0f} feet/nm')")
