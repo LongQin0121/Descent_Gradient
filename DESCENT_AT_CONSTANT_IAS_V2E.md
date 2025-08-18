@@ -129,6 +129,8 @@ This conclusion holds because:
 
 This explains why constant IAS descent is such a reliable and commonly used flight technique in aviation.
 
+Moreover, the magnitude of the descent gradient is mainly determined by IAS and aircraft weight, but it also depends on inherent aircraft characteristics such as CD0 (zero-lift drag coefficient), S (wing area), and k (induced drag factor).
+
 ---
 
 ## **Symbol Definitions**
