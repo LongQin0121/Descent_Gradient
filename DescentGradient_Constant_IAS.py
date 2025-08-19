@@ -61,13 +61,17 @@ if __name__ == "__main__":
     # Direct function call - 您可以在这里随时修改输入参数
     print("=== Direct Function Call ===")
     sin_gamma, gamma_deg, gradient_ft_nm = get_descent_gradient(
-        IAS_knots=250,     # knot
+        IAS_knots=280,    # knot
         weight_kg=58000,     # BADA MLW 64500
         S_m2=122.6,       # m
-        CD0=0.023,     # dimensionless   openap  0.018   https://aircraftinvestigation.info/airplanes/A320-200.html     CD0=0.023    0.0235 ()
-        k=0.0094,    # dimensionless     openap  0.039   https://aircraftinvestigation.info/airplanes/A320-200.html     k=0.0094     0.0089  A320-100
+        CD0=0.023,    # dimensionless   openap  0.018   https://aircraftinvestigation.info/airplanes/A320-200.html     CD0=0.023    0.0235 ()
+        k=0.0334,       #            openap  0.039   https://aircraftinvestigation.info/airplanes/A320-200.html     k=0.0094     0.0089  A320-100
         T_idle_N=7000,        
     )
     print(f"sin(γ) = {sin_gamma:.6f}")
     print(f"γ = {gamma_deg:.3f}°")
     print(f"Descent gradient = {gradient_ft_nm:.0f} ft/nm")
+
+
+    #   k    induced drag coefficient   
+    #  CD0   drag coefficient (zero lift)    

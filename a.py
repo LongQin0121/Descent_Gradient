@@ -13,3 +13,7 @@ def calculate_k(self):
     k = 1 / (np.pi * AR * e)                 # 诱导阻力因子
     
     return k
+
+
+    #   k    induced drag coefficient   
+    #  CD0   drag coefficient (zero lift)    

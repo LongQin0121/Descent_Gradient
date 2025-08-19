@@ -135,7 +135,7 @@ Moreover, the magnitude of the descent gradient is mainly determined by IAS and 
 
 ## **Symbol Definitions**
 
-- $\gamma$: Flight path angle (negative for descent)
+- $\gamma$: Flight path angle
 - $W$: Aircraft weight
 - $D$: Total drag
 - $T_{idle}$: Idle thrust
