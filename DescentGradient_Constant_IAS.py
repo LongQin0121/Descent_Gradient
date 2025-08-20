@@ -41,7 +41,8 @@ def get_descent_gradient(IAS_knots, weight_kg, S_m2, CD0, k, T_idle_N):
     
     # Denominator: 1 +(1.225 × 10⁻⁴ × IAS²) / g
     # Note: IAS in m/s for this calculation
-    denominator = 1 +(1.225e-4 * IAS_ms**2) / G
+    denominator = 1 + (1.85 * (6.125e-5 * IAS_ms**2)) / G
+
     
     # Final sin(γ) calculation
     sin_gamma = numerator / denominator
