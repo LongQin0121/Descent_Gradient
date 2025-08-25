@@ -65,8 +65,8 @@ if __name__ == "__main__":
         IAS_knots=280,    # knot
         weight_kg=58000,     # BADA MLW 64500
         S_m2=122.6,       # m
-        CD0=0.023,    # dimensionless   openap  0.018   https://aircraftinvestigation.info/airplanes/A320-200.html     CD0=0.023    0.0235 ()
-        k=0.0334,       #            openap  0.039   https://aircraftinvestigation.info/airplanes/A320-200.html     k=0.0094     0.0089  A320-100
+        CD0=0.028,    # dimensionless   openap  0.018   https://aircraftinvestigation.info/airplanes/A320-200.html     CD0=0.023    0.0235 ()
+        k=0.04,       #            openap  0.039   https://aircraftinvestigation.info/airplanes/A320-200.html     k=0.0094     0.0089  A320-100
         T_idle_N=7000,        
     )
     print(f"sin(γ) = {sin_gamma:.6f}")
