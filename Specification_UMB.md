@@ -47,3 +47,55 @@
   - 转换为 IAS 250 kt  
   - FL150 减为 IAS 220 kt  
   - MP 点前减为 IAS 170 kt
+
+
+---
+
+# Approach and Descent Notes
+
+## 1. Landing Clearance
+- **Landing clearance must be issued before the aircraft is within 2 NM of touchdown**.
+
+---
+
+## 2. Final Approach Interception
+- Before interception: at least **2 km level flight**.  
+- After interception: maintain **1 NM level flight**.
+
+---
+
+## 3. Base Leg and Speed Control
+- The shorter the base leg → the **less margin for MP (Missed Approach Point) speed control**.  
+- A shorter base leg leaves limited room for adjustments or catching up.
+
+---
+
+## 4. Single Runway Parameters (Example)
+- **12/600**  
+- **18/900**
+
+(Note: actual values depend on obstacle clearance and airport conditions)
+
+---
+
+## 5. Glide Path Length
+- Determined by **obstacle clearance on the base leg**.
+
+---
+
+## 6. A320 Cruise and Descent Speed Profiles
+
+### Cruise Speed Range
+- **Mach 0.70 – 0.78**
+
+### Descent Speed Profiles
+- **Early Descent Profile**  
+  - M 0.78  
+  - Transition to IAS 310 kt  
+  - Reduce to IAS 250 kt before FL100  
+  - Reduce to IAS 170 kt before MP  
+
+- **Late Descent Profile**  
+  - M 0.70  
+  - Transition to IAS 250 kt  
+  - Reduce to IAS 220 k
